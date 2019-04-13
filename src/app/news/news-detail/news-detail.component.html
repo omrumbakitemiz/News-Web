@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar></div>
+          <mat-card-title><strong>{{selectedNews.title}}</strong></mat-card-title>
+          <mat-card-subtitle><i>{{selectedNews.viewCount}} times viewed.</i></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          {{selectedNews.text}}
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-end">
+          <p class="like-dislike-container">
+            <button mat-icon-button color="primary" (click)="onLike(selectedNews)">
+              <mat-icon>thumb_up_alt</mat-icon>
+              <span class="like">{{selectedNews.likeCount}}</span>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDislike(selectedNews)">
+              <mat-icon>thumb_down_alt</mat-icon>
+              <span class="dislike">{{selectedNews.dislikeCount}}</span>
+            </button>
+          </p>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

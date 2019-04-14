@@ -1,27 +1,19 @@
-# NewsWeb
+# News Api
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+*This application is for news reading.*
 
-## Development server
+This project has 3 parts.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- *[Ionic Mobile App](https://github.com/omrumbakitemiz/News-Mobile)*
 
-## Code scaffolding
+  - Users can view, like or dislike news on the mobile application.
+  
+  
+- *[Angular Web App](https://github.com/omrumbakitemiz/News-Web)*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - Users can add, edit or delete news via the web application
+  
+  
+- *[Asp.Net Core Web Api](https://github.com/omrumbakitemiz/News-Api)*
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  - This application provides a couple of services which is used by the web app and mobile app. Also, this app connects to the database via Entity Framework.

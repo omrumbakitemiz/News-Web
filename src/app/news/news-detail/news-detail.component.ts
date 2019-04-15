@@ -12,7 +12,7 @@ import { News } from '../news';
   styleUrls: ['./news-detail.component.sass']
 })
 export class NewsDetailComponent implements OnInit {
-  public selectedNews: News;
+  selectedNews: News;
 
   constructor(
     private newsService: NewsService,
@@ -25,11 +25,6 @@ export class NewsDetailComponent implements OnInit {
 
     if (!this.selectedNews) {
       console.log('route:', this.route);
-      // this.route.params.subscribe(params => {
-      //   console.log('route:', this.route);
-      //   this.newsService.one(params.id)
-      //     .subscribe(news => this.selectedNews = news);
-      // });
     }
 
     this.newsService.increaseViewCount(this.selectedNews.id)

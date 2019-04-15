@@ -12,7 +12,7 @@ import { SharedService } from '../../common/shared.service';
   styleUrls: ['./list-news.component.sass']
 })
 export class ListNewsComponent implements OnInit, AfterViewInit {
-  protected allNews: Array<News>;
+  allNews: Array<News>;
 
   constructor(
     private newsService: NewsService,

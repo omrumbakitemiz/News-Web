@@ -1,9 +1,3 @@
-<!-- <ul>
-  <li *ngFor="let news of allNews">
-    {{news.title}} / {{news.text}} / {{news.type}}
-  </li>
-</ul> -->
-
 <mat-card class="card" *ngFor="let news of allNews" (click)="onClick(news)">
   <mat-card-header>
     <div mat-card-avatar></div>
@@ -13,16 +7,4 @@
   <mat-card-content class="card-content">
     {{news.text}}
   </mat-card-content>
-  <!-- <mat-card-actions class="d-flex justify-content-end">
-    <p class="like-dislike-container">
-      <button margin mat-icon-button color="primary" (click)="onLike(news)">
-        <mat-icon>thumb_up_alt</mat-icon>
-        <span class="like">{{news.likeCount}}</span>
-      </button>
-      <button margin mat-icon-button color="warn" (click)="onDislike(news)">
-        <mat-icon>thumb_down_alt</mat-icon>
-        <span class="dislike">{{news.dislikeCount}}</span>
-      </button>
-    </p>
-  </mat-card-actions> -->
 </mat-card>

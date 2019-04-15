@@ -12,7 +12,7 @@ import { News } from '../news';
   styleUrls: ['./news-detail.component.sass']
 })
 export class NewsDetailComponent implements OnInit {
-  protected selectedNews: News;
+  public selectedNews: News;
 
   constructor(
     private newsService: NewsService,

@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { News, NewsType } from '../news';
-
 import { NewsService } from './news.service';
+import { Utils } from 'src/app/common/utils/utils';
 
 @Component({
   selector: 'app-add-news',
@@ -23,7 +23,8 @@ export class AddNewsComponent implements OnInit {
   });
   newsTypes: Array<NewsType> = [];
 
-  constructor(private formBuilder: FormBuilder, private changeDetectorRef: ChangeDetectorRef, private newsService: NewsService) {}
+  constructor(private formBuilder: FormBuilder, private changeDetectorRef: ChangeDetectorRef, private newsService: NewsService) {
+  }
 
   ngOnInit() {
     this.news = new News();
@@ -53,9 +54,8 @@ export class AddNewsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.newsFormGroup.patchValue({ publishDate: new Date() });
     this.news = this.newsFormGroup.value;
-
+    this.news.publishDate = Utils.fixUserTimeZoneOffset(this.news.publishDate);
     this.newsService.addNews(this.news).subscribe(() => this.newsFormGroup.reset());
   }
 }

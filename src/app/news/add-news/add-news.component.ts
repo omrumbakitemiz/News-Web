@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { News, NewsType } from '../news';
 import { NewsService } from './news.service';
@@ -22,8 +23,14 @@ export class AddNewsComponent implements OnInit {
     publishDate: ['']
   });
   newsTypes: Array<NewsType> = [];
+  snacBarDurationInSeconds = 5;
 
-  constructor(private formBuilder: FormBuilder, private changeDetectorRef: ChangeDetectorRef, private newsService: NewsService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private changeDetectorRef: ChangeDetectorRef,
+    private newsService: NewsService,
+    private snackBar: MatSnackBar
+  ) {
   }
 
   ngOnInit() {
@@ -56,6 +63,15 @@ export class AddNewsComponent implements OnInit {
   onSubmit() {
     this.news = this.newsFormGroup.value;
     this.news.publishDate = Utils.fixUserTimeZoneOffset(this.news.publishDate);
-    this.newsService.addNews(this.news).subscribe(() => this.newsFormGroup.reset());
+    this.newsService.addNews(this.news).subscribe(() => {
+      this.newsFormGroup.reset();
+      this.openSnackBar();
+    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open('News Created', 'Close', {
+      duration: this.snacBarDurationInSeconds * 1000,
+    });
   }
 }

@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { News, NewsType } from '../news';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NewsService {
 
   BASE_URL = 'https://immino-news-api.herokuapp.com/api';

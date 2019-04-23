@@ -8,6 +8,12 @@
       <a routerLink="/" class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
       <a routerLink="/new" class="nav-item nav-link" href="#">Add News</a>
       <a routerLink="/list" class="nav-item nav-link" href="#">All News</a>
+
+    </div>
+    <div class="navbar-nav ml-auto">
+      <a *ngIf="!isAuthenticated" routerLink="/sign-up" class="nav-item nav-link" href="#">Sign Up</a>
+      <a *ngIf="!isAuthenticated" routerLink="/sign-in" class="nav-item nav-link" href="#">Sign In</a>
+      <button mat-raised-button color="warn" class="pull-right" *ngIf="isAuthenticated" (click)="signOut()">Sign Out</button>
     </div>
   </div>
 </nav>

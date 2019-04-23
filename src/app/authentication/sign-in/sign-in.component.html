@@ -1,0 +1,31 @@
+<div class="form-container">
+  <form class="sign-in-form" [formGroup]="signInFormGroup" (ngSubmit)="onFormSubmit()">
+    <mat-form-field appearance="outline" class="w-100 my-2">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput formControlName="username">
+      <mat-error *ngIf="signInFormGroup.get('username').hasError('username') && !signInFormGroup.get('username').hasError('required')">
+        Please enter a valid username
+      </mat-error>
+      <mat-error *ngIf="signInFormGroup.get('username').hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100 my-2">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="passwordHash">
+      <mat-error *ngIf="signInFormGroup.get('passwordHash').hasError('passwordHash') && !signInFormGroup.get('passwordHash').hasError('required')">
+        Please enter a valid password
+      </mat-error>
+      <mat-error *ngIf="signInFormGroup.get('passwordHash').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="d-flex flex-column justify-content-center w-100">
+      <button class="sign-in-button" [disabled]="!signInFormGroup.valid" type="submit" mat-stroked-button color="primary">Sign In</button>
+      <a class="sign-up-link" routerLink="/sign-up">Sign Up</a>
+    </div>
+  </form>
+
+</div>

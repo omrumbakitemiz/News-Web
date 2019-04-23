@@ -12,7 +12,8 @@ import {
   MatCardModule,
   MatIconModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { AppRoutingModule } from '../app-routing.module';
@@ -35,6 +36,7 @@ import { SharedService } from '../common/shared.service';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -51,6 +53,7 @@ import { SharedService } from '../common/shared.service';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,

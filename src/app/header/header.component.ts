@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+  public isAuthenticated = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    //   return false;
+    // };
+    const user = JSON.parse(window.localStorage.getItem('user'));
+    this.isAuthenticated = !!user;
   }
 
   navigate(path: string) {
@@ -22,5 +32,11 @@ export class HeaderComponent implements OnInit {
           }
         });
     }
+  }
+
+  public signOut() {
+    window.localStorage.removeItem('user');
+    this.userService.isAuthenticated.next(false);
+    this.router.navigate(['/']);
   }
 }

@@ -13,25 +13,11 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService
-  ) { }
-
-  ngOnInit() {
-    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
-    //   return false;
-    // };
-    const user = JSON.parse(window.localStorage.getItem('user'));
-    this.isAuthenticated = !!user;
+  ) {
   }
 
-  navigate(path: string) {
-    if (path) {
-      this.router.navigate([path])
-        .then(result => {
-          if (result) {
-            console.log(`NAVIGATED TO: ${path}`);
-          }
-        });
-    }
+  ngOnInit() {
+    this.userService.isAuthenticated.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 
   public signOut() {

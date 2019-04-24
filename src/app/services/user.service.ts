@@ -6,9 +6,7 @@ import { User } from '../common/models/user';
 import { RegisterResource } from '../common/models/registerResource';
 import { LoginResource } from '../common/models/loginResource';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
   userUrl = `${ baseUrl }/user`;
   isAuthenticated = new BehaviorSubject<boolean>(false);

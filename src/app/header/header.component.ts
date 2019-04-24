@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.userService.isAuthenticated.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 

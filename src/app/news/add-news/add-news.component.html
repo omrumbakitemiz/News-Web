@@ -42,7 +42,7 @@
       <input #newsImageFileInput type="file" (change)="onImageSelect($event)" />
     </div>
 
-    <div class="col-sm-12 col-lg-3 d-flex align-items-center my-2">
+    <div class="col-sm-12 col-lg-3 d-flex align-items-center my-2 remove-image-button">
       <button mat-raised-button type="button" [disabled]="!newsFormGroup.value.image" color="warn" (click)="removeImage()">Remove Image</button>
     </div>
   </div>

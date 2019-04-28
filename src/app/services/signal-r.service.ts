@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { News } from '../news/news';
+import { baseUrl } from '../common/models/baseUrl';
 
 @Injectable()
 export class SignalRService {
@@ -9,10 +10,11 @@ export class SignalRService {
 
   public newNews: Array<any>;
   private hubConnection: signalR.HubConnection;
+  signalRUrl = baseUrl + '/newsHub';
 
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://immino-news-api.herokuapp.com/newsHub')
+      .withUrl(this.signalRUrl)
       .build();
 
     this.hubConnection

@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { News, NewsType } from '../news';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'src/app/common/models/baseUrl';
 
 @Injectable()
 export class NewsService {
 
-  BASE_URL = 'https://immino-news-api.herokuapp.com/api';
+  BASE_URL = baseUrl + '/api';
   constructor(private http: HttpClient) { }
 
   addNews(news: News): Observable<any> {

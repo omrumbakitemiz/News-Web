@@ -8,7 +8,7 @@ import { LoginResource } from '../common/models/loginResource';
 
 @Injectable()
 export class UserService {
-  userUrl = `${ baseUrl }/user`;
+  userUrl = `${ baseUrl }/api/user`;
   isAuthenticated = new BehaviorSubject<boolean>(false);
   token = new BehaviorSubject<string>('');
 
